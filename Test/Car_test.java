@@ -1,10 +1,45 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class Car_test {
 
     @Test
+    void car_should_have_doors() {
+        Saab95 s = new Saab95();
+        Volvo240 v = new Volvo240();
+        s.getNrDoors();
+        v.getNrDoors();
+        assertEquals(2, s.getNrDoors());
+        assertEquals(4, v.getNrDoors());
+    }
 
+    @Test
+    void car_should_have_model_name() {
+        Saab95 car = new Saab95();
+        car.getModelName();
+        assertEquals("Saab95", car.getModelName());
+    }
+
+    @Test
+    void car_should_have_engine_power() {
+        Saab95 s = new Saab95();
+        Volvo240 v = new Volvo240();
+        s.getEnginePower();
+        v.getEnginePower();
+        assertEquals(125, s.getEnginePower(), 0.01);
+        assertEquals(100, v.getEnginePower(), 0.01);
+    }
+
+    @Test
+    void car_should_have_a_color() {
+        Saab95 car = new Saab95();
+        car.getColor();
+        assertEquals("Car", car.getColor());
+    }
+
+    @Test
     void car_should_have_speed_zero() {
         Saab95 s = new Saab95();
         Volvo240 v = new Volvo240();
@@ -34,26 +69,6 @@ public class Car_test {
         assertEquals(0, v.getCurrentSpeed(), 0.01);
     }
 
-
-    @Test
-    void car_should_have_doors() {
-        Saab95 s = new Saab95();
-        Volvo240 v = new Volvo240();
-        s.getNrDoors();
-        v.getNrDoors();
-        assertEquals(2, s.getNrDoors());
-        assertEquals(4, v.getNrDoors());
-    }
-
-    @Test
-    void car_should_have_engine_power() {
-        Saab95 s = new Saab95();
-        Volvo240 v = new Volvo240();
-        s.getEnginePower();
-        v.getEnginePower();
-        assertEquals(125, s.getEnginePower(), 0.01);
-        assertEquals(100, v.getEnginePower(), 0.01);
-    }
 
 
     @Test
@@ -90,7 +105,22 @@ public class Car_test {
         assertEquals(0.1, v.getyCoordinate(), 0.01);
     }
 
+    @Test
+    void car_should_increse_speed_with_gas() {
+        Saab95 car = new Saab95();
+        car.startEngine();
+        car.gas(0.2);
+        assertEquals(0.35, car.getCurrentSpeed(), 0.01);
 
+    }
 
+    @Test
+    void car_should_decrease_speed_with_break() {
+        Volvo240 car = new Volvo240();
+        car.startEngine();
+        car.gas(0.2);
+        car.brake(0.1);
+        assertEquals(0.225, car.getCurrentSpeed(), 0.01);
+    }
 
 }

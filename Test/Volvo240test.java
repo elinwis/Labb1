@@ -12,7 +12,6 @@ public class Volvo240test {
     @Test
     void car_should_decrement_speed() {
         Volvo240 car = new Volvo240();
-
         car.speedFactor();
 
 

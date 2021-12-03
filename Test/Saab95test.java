@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Saab95test {
 
-    @
-    Saab95 car = new Saab95();
-    car.startEngine();
-
     @Test
     void car_should_move_in_coordinate_system_with_currentSpeed() {
         Saab95 car = new Saab95();
@@ -17,20 +13,10 @@ public class Saab95test {
     }
 
     @Test
-    void car_should_increment_speed() {
-        Saab95 car = new Saab95();
-        car.getCurrentSpeed();
-        car.speedFactor();
-
+    void saab_should_have_speed_factor() {
+    Saab95 car = new Saab95();
+    car.move();
+    car.speedFactor();
+    assertEquals(1.25, car.speedFactor());
     }
-
-    @Test
-    void car_should_decrement_speed() {
-        Saab95 car = new Saab95();
-        car.getCurrentSpeed();
-        car.speedFactor();
-
-
-    }
-
 }
